@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>List of Swords</h1>
+
+{% for sword in swords %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ sword.name }}</span>
+      <p>Category - {{ sword.category }}</p>
+      <p>Age - {{ sword.age }}</p>
+      <p>Origin - {{ sword.origin }}</p>
+      <p>Swordsmith - {{ sword.swordsmith }}</p>
+      <p>Blade Material - {{ sword.blade_material }}</p>
+      <p>Blade Length - {{ sword.blade_length }}</p>
+
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
