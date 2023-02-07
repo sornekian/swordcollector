@@ -19,7 +19,17 @@ h1 {
 nav {
   background-color: rgb(20, 20, 43);
 }
-/* p { not working */
-  /* font-family: 'Tangerine', cursive;
+h4 {
+  font-family: 'Sofia Sans Extra Condensed', sans-serif;
+}
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+  color: rgb(0, 84, 99);
+}
+p { 
+  font-family: 'EB Garamond', serif;
   font-size: 18px;
-} */
+  color: black;
+}
+a {
+  color:rgb(0, 84, 99)
+}
