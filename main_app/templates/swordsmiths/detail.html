@@ -52,7 +52,7 @@
           <div class="card-action">
             <form action="{% url 'disassoc_warrior' swordsmith.id warrior.id %}" method="POST">
               {% csrf_token %}
-              <button type="submit" class="btn">Remove</button>
+              <button type="submit" class="btn" style="background-color: rgb(20, 20, 43)">Remove</button>
             </form> 
           </div>
         </div>
@@ -75,7 +75,7 @@
           <div class="card-action">
             <form action="{% url 'assoc_warrior' swordsmith.id warrior.id %}" method="POST">
               {% csrf_token %}
-              <button type="submit" class="btn">Add</button>
+              <button type="submit" class="btn" style="background-color: rgb(20, 20, 43)">Add</button>
             </form>
           </div>
         </div>
