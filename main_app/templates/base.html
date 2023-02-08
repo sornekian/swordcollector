@@ -8,6 +8,7 @@
   <title>Antique Swords</title> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@1,200&display=swap" rel="stylesheet">
@@ -21,8 +22,10 @@
         </ul>
         <ul class="right">
           <li><a href="{% url 'about' %}">About Us</a></li>
-          <li><a href="{% url 'swords_create' %}">Add a Sword</a></li>
-          <li><a href="{% url 'index' %}">View All Acquired Swords</a></li>
+          <li><a href="{% url 'warriors_create' %}">Add a Warrior</a></li>
+          <li><a href="{% url 'warriors_index' %}">View All Warriors</a></li>
+          <li><a href="{% url 'swordsmiths_create' %}">Add a Swordsmith</a></li>
+          <li><a href="{% url 'index' %}">View All Swordsmiths</a></li>
         </ul>
       </div>
     </nav>

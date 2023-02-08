@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>List of Swordsmiths</h1>
+<hr>
+
+{% for swordsmith in swordsmiths %}
+  <div class="card">
+    <a href="{% url 'detail' swordsmith.id %}">
+    <div class="card-content">
+      <p>Name - {{ swordsmith.name }}</p>
+      <p>Origin - {{ swordsmith.origin }}</p>      
+    </a>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}

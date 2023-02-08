@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Swordsmith Details</h1>
+
+<div class="card">
+  <div class="card-content">
+    <p>Name - {{ swordsmith.name }}</p>
+    <p>Origin - {{ swordsmith.origin }}</p>
+  </div>
+  <div class="card-action">
+    <a href="{% url 'swordsmiths_update' swordsmith.id %}">Edit</a>
+    <a href="{% url 'swordsmiths_delete' swordsmith.id %}">Delete</a>
+  </div>
+</div>
+<div class="col s6">
+<form action="{% url 'add_sword' swordsmith.id %}" method="POST">
+    {% csrf_token %}
+    <!-- Render the inputs -->
+    {{ sword_form.as_p }}
+    <input type="submit" class="btn" style="background-color: rgb(20, 20, 43)" value="Add Sword">
+  </form>
+    <table class="striped">
+      <thead>
+        <tr><th>Category</th><th>Age</th><th>Blade Material</th><th>Blade Length</th></tr>
+      </thead>
+      <tbody>
+        {% for sword in swordsmith.sword_set.all %}
+          <tr>
+            <td>{{sword.category}}</td>
+            <td>{{sword.age}}</td>
+            <td>{{sword.blade_material}}</td>
+            <td>{{sword.blade_length}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+<div class="row">
+  <div class="col s6">
+    <h3>{{ swordsmith.name }}'s Warriors</h3>
+    {% if swordsmith.warriors.count %}
+      {% for warrior in swordsmith.warriors.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              <span style="name: {{ warrior.name }}">{{ warrior.name }}</span> {{ warrior.faction }}
+            </span>
+          </div>
+          <div class="card-action">
+            <form action="{% url 'disassoc_warrior' swordsmith.id warrior.id %}" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn">Remove</button>
+            </form> 
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>No Warriors Listed</h5>
+    {% endif %}
+  </div>
+  <!-- Available warriors will come after this line -->
+  <div class="col s6">
+    <h3>Available Warriors</h3>
+    {% if warriors.count %}
+      {% for warrior in warriors.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              <span style="faction: {{ warrior.faction }}">{{ warrior.name }}</span>
+            </span>
+          </div>
+          <div class="card-action">
+            <form action="{% url 'assoc_warrior' swordsmith.id warrior.id %}" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn">Add</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>{{swordsmith.name}} Already Has All Warriors Available</h5>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>Remove Sword</h1>
+  <h1>Delete Warrior</h1>
 
-  <h4>Are you sure you want to delete <span class="" style="color: rgb(161, 33, 33)">this Sword</span>?</h4>
+  <h4>Are you sure you want to delete <span class="teal-text">{{ object.name }}</span>?</h4>
 
   <form action="" method="POST">
     {% csrf_token %}
     <input type="submit" value="Delete!" class="btn" style="background-color: rgb(161, 33, 33);">
-    <a href="{% url 'detail' sword.id %}">cancel</a>
+    <a href="{% url 'warriors_detail' object.id %}">Cancel</a>
   </form>
 {% endblock %}
