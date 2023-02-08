@@ -36,12 +36,12 @@ def add_sword(request, swordsmith_id):
 
 class SwordsmithCreate(CreateView):
     model = Swordsmith
-    fields = '__all__'
+    fields = ['name', 'origin']
     # success_url = '/swords'
 
 class SwordsmithUpdate(UpdateView):
     model = Swordsmith
-    fields = '__all__'
+    fields = ['name', 'origin']
     # success_url = '/swords'
 
 class SwordsmithDelete(DeleteView):
