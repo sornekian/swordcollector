@@ -17,4 +17,5 @@ urlpatterns = [
     path('warriors/create/', views.WarriorCreate.as_view(), name='warriors_create'),
     path('warriors/<int:pk>/update/', views.WarriorUpdate.as_view(), name='warriors_update'),
     path('warriors/<int:pk>/delete/', views.WarriorDelete.as_view(), name='warriors_delete'),
+    path('accounts/signup/', views.signup, name='signup'),
 ]
